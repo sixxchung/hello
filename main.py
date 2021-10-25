@@ -9,6 +9,8 @@ from typing import Optional
 #from app.database.conn import db
 from app.routes import index #auth
 
+# app=FastAPI()
+
 def create_app():
     app=FastAPI()
     # c=conf()
@@ -35,4 +37,5 @@ app = create_app()
 
 # uvicorn main:app --reload
 if __name__ == "__main__" :
-    uvicorn.run("main:app",host="localhost", port=6666, reload=True) # reload=conf().PROJ_RELOAD)
+    #uvicorn.run("main:app",host="0.0.0.0", port=6666, reload=True) # reload=conf().PROJ_RELOAD)
+    uvicorn.run("main:app", port=8888, reload=True) # reload=conf().PROJ_RELOAD)
