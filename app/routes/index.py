@@ -12,9 +12,9 @@ router = APIRouter()
 @router.get("/")
 async def index(req: Request):
     """
-    `ELB 상태 체크용 API`
+    `ELB 상태 체크용 API` \n
     :return:
     """
-    return JSONResponse({
-        'hello':'world'
-    })
+    return JSONResponse(
+        {'hi':'sixxx'}
+    )
