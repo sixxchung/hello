@@ -1,0 +1,5 @@
+[
+    {"name":"seoul",       "timezone":"asia/seoul"},
+    {"name":"Los_Angeles", "timezone":"America/Los_Angeles"},
+    {"name":"Berlin",      "timezone":"Europe/Berlin"}
+]
