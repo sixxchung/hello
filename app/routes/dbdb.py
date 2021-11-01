@@ -1,6 +1,10 @@
 from fastapi import APIRouter 
 from typing import List
 
+import sys, os
+#sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+sys.path.append('/Users/onesixx/my/git/hello/app')
+
 from db import session
 from model import UserTable, User
 
@@ -16,10 +20,8 @@ def read_users():
         {'hello':'sixxx'}
     )
 
-
 @router.get("/users")
 async def read_users():
-    print("-=======>Sixx")
     users = session.query(UserTable).all()
     return users
 
@@ -39,19 +41,23 @@ def create_users(name:str, age:int):
 
 @router.put("/users")
 def update_users(users: List[User]):
+    #print("-=======>Sixx")
+    #print(users)
     for i in users:
         user = session.query(UserTable).filter(UserTable.id == i.id).first()
+        #print("-=======>Sixx")
         user.name= i.name
         user.age = i.age
-        return users
-    return f"{user[0].name} updated..."
+        session.commit()
+
+    return f"{users[0].name} updated..."
 
 @router.delete("/users/{user_id}")
 def delete_users(user_id: int):
     user = session.query(UserTable).filter(UserTable.id == user_id).delete()
     session.commit()
 
-    return  f"{user[0].name} delete..."
+    return  "delete..."
 
 
 
