@@ -10,7 +10,8 @@ import dash_admin_components as dac
 from dash import dcc  # dash_core_components
 import dash_bootstrap_components as dbc
 
-from dash.dependencies import Input, Output, State
+from dash import Dash, Input, Output, callback
+#from dash.dependencies import Input, Output, State
 from dash.exceptions   import PreventUpdate
 
 ### Required libraries ------------------------------------------
