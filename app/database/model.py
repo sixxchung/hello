@@ -1,8 +1,8 @@
 
 from sqlalchemy import Column, Integer, String
 from pydantic import BaseModel
-from db import Base
-from db import ENGINE
+from database.conn import Base
+from database.conn import ENGINE
 
 class UserTable(Base):
     __tablename__ = 'user'

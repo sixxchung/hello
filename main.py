@@ -4,11 +4,11 @@ from fastapi import FastAPI
 
 #from app.common.config import conf
 #from app.database.conn import db
-from app.routes import dbdb #auth
+from app.routes import userAPI #auth
 
 def create_app():
     app=FastAPI()
-    app.include_router(dbdb.router)
+    app.include_router(userAPI.router)
     
     return app
 

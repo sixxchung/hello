@@ -5,8 +5,8 @@ import sys, os
 #sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 sys.path.append('/Users/onesixx/my/git/hello/app')
 
-from db import session
-from model import UserTable, User
+from database.conn import session
+from database.model import UserTable, User
 
 import requests
 from starlette.requests import Request
@@ -40,17 +40,18 @@ def create_users(name:str, age:int):
     return f"{name} created."
 
 @router.put("/users")
-def update_users(users: List[User]):
+def update_users(userList: List[User]):
     #print("-=======>Sixx")
     #print(users)
-    for i in users:
+    for i in userList:
         user = session.query(UserTable).filter(UserTable.id == i.id).first()
-        #print("-=======>Sixx")
+        print("-=======>Sixx")
+        print(i.age)
         user.name= i.name
         user.age = i.age
         session.commit()
 
-    return f"{users[0].name} updated..."
+    return f"{userList[0].name} updated..."
 
 @router.delete("/users/{user_id}")
 def delete_users(user_id: int):
